@@ -37,3 +37,10 @@ use of memory cards.
 See the doc/ folder in the source, or /usr/share/doc/pcsx/ on Debian systems,
 for more detailed information on PCSX-Reloaded. A UNIX manpage is also
 available.
+
+Compile instructions in Ubuntu for Retroarch (32 bit)
+=====================================================
+`export CFLAGS="$CFLAGS -Ofast -Wl,--gc-sections -fno-stack-protector -fno-ident -fomit-frame-pointer -falign-functions=1 -falign-jumps=1 -falign-loops=1 -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-unroll-loops -fmerge-all-constants -fno-math-errno"` \
+`make clean` \
+`make -f Makefile.libretro HAVE_NEON=1 ARCH=arm BUILTIN_GPU=neon DYNAREC=ari64 platform=rpi3 -j$(nproc)`
+
